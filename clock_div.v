@@ -39,7 +39,7 @@ genvar i;
     generate
         for(i = 0; i < BIT_COUNT; i = i + 1)begin 
     dff ins(
-        .clock(clock_out[i-1]
+        .clock(clock_out[i-1])
     );
     end
 
