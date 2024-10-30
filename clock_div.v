@@ -25,6 +25,9 @@ module clock_div
     input reset,
     output reg div_clock
 );
+
+    // Add a store command
+    
 genvar i;
     reg intreset;
     wire [16:0] intcount;
