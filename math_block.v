@@ -15,18 +15,10 @@ module math_block(
         AminusB = A - B;     
     end
 
-    // twos_compliment add(
-    //     .A(A),
-    //     .B(B),
-    //     .Y(AplusB)
-    // );
+   // Use full_adder just like week 6 lab for addition and subtraction
 
-    // subtractor sub(
-    //     .a(A),
-    //     .b(B),
-    //     .Y(AminusB)
-    // );
-
+    // Shift left is x2
+    // Shift right is /2
     
     
         
