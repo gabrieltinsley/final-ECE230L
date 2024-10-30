@@ -42,6 +42,7 @@ genvar i;
         .clock(clock_out[i-1])
     );
     end
+    endgenerate
 
 //    seven_seg_scanner #(BIT_COUNT) count(
 //        .div_clock(clock),
