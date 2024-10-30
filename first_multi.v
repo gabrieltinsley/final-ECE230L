@@ -1,4 +1,4 @@
-// This is the multiplexer that takes 16 inputs 
+// This is the multiplexer that takes 16 inputs then outputs one 8 bit number
 
 module first_multi(
   input [7:0] zero,
