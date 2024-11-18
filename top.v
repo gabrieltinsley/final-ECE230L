@@ -149,7 +149,7 @@ module top
 
     SWP op14 (
         .clk(btnC),
-        .swap(sel),
+        .swap(btnU),
         .A(A),
         .B(B)
     );
