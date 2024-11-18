@@ -35,17 +35,7 @@ module top
     // Math block outputs
     // Split switches into two 4-bit signals A and B
    
-    wire [3:0] AplusB;
-    wire [3:0] AminusB;
 
-    
-       // Instantiate the math block (performing A + B and A - B)
-    math_block math_inst (
-        .A(sw[3:0]),
-        .B(sw[7:4]),
-        .AplusB(AplusB),
-        .AminusB(AminusB)
-    );
 
     // Instantiate the 7-segment scanner (to cycle through the anodes)
     seven_seg_scanner scanner_inst (
