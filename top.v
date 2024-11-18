@@ -32,6 +32,131 @@ module top
         .div_clock(div_clock)
     );
 
+    // add a bunch of wires 8-bit wide to do all the operations
+    wire [7:0] AaddB;
+
+    ADD op0 (
+        .A(A),
+        .B(B),
+        .Y(AaddB)
+    );
+    
+    wire [7:0] AsubB;
+
+    SUB op1 (
+        .A(A),
+        .B(B),
+        .Y(AsubB)
+    );
+
+    wire [7:0] AcmpB;
+
+    CMP op2 (
+        .A(A),
+        .B(B),
+        .Y(AcmpB)
+    );
+    
+    wire [7:0] AshlB;
+
+    SHL op3 (
+        .A(A),
+        .B(B),
+        .Y(AshlB)
+    );
+    
+    wire [7:0] AshrB;
+    
+    SHR op4 (
+        .A(A),
+        .B(B),
+        .Y(AshrB)
+    );
+    
+    wire [7:0] AandB;
+
+    AND op5 (
+        .A(A),
+        .B(B),
+        .Y(AandB)
+    );
+    
+    wire [7:0] AorB;
+
+    OR op6 (
+        .A(A),
+        .B(B),
+        .Y(AorB)
+    );
+    
+    wire [7:0] AxorB;
+    
+    XOR op7 (
+        .A(A),
+        .B(B),
+        .Y(AxorB)
+    );
+    
+    wire [7:0] AnandB;
+
+    NAND op8 (
+        .A(A),
+        .B(B),
+        .Y(AnandB)
+    );
+    
+    wire [7:0] AnorB;
+
+    NOR op9 (
+        .A(A),
+        .B(B),
+        .Y(AnorB)
+    );
+    
+    wire [7:0] AxnorB;
+
+    XNOR op10 (
+        .A(A),
+        .B(B),
+        .Y(AxnorB)
+    );
+    
+    wire [7:0] AinvB;
+
+    INV op11 (
+        .A(A),
+        .B(B),
+        .Y(AinvB)
+    );
+    
+    wire [7:0] AnegB;
+
+    NEG op12 (
+        .A(A),
+        .B(B),
+        .Y(AnegB)
+    );
+    
+    wire [7:0] Asto;
+
+    STO op13 (
+        .A(A),
+        .Y(Asto)
+    );
+    
+    wire [7:0] AswpB;
+
+    SWP op14 (
+        .A(A),
+        .B(B)
+    );
+    
+    wire [7:0] Aload;
+
+    LOAD op15 (
+        .A(A)
+    );
+
     // Split switches into two 4-bit signals lowerY and upperY
     wire [3:0] lowerY;
     wire [3:0] upperY;
