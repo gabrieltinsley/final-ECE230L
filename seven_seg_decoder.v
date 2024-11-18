@@ -1,5 +1,5 @@
 module seven_seg_decoder(
-    input [7:0] Val,
+    input [3:0] Val,
     input [3:0] lowerY,
     input [3:0] upperY,
     input [3:0] anode,
