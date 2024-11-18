@@ -174,9 +174,9 @@ module top
 
     // Instantiate mux_A
     mux mux_A (
-        .ADD(ADD_A), 
-        .SUB(SUB_A), 
-        .SHL(SHL_A), 
+        .ADD(A), 
+        .SUB(A), 
+        .SHL(Ashl), 
         .SHR(SHR_A),
         .CMP(CMP_A), 
         .AND(AND_A), 
