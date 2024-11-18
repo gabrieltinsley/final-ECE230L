@@ -15,7 +15,7 @@ module mux (
     input [7:0] NEG,
     input [7:0] STO,
     input [7:0] SWP,
-    input [3:0] LOAD,
+    input [7:0] LOAD,
     input [3:0] sel,   // Added 'sel' input
     input enable,
     output reg [7:0] data
