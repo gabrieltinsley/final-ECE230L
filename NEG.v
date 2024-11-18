@@ -1,4 +1,4 @@
-module INVERSE (
+module NEG (
   input [7:0] A,
   output [7:0] Y
 );
