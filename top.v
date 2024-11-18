@@ -141,6 +141,7 @@ module top
 
     STO op13 (
         .A(A),
+        .store(btnC),
         .Y(Asto)
     );
     
