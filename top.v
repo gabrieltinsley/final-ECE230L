@@ -34,8 +34,8 @@ module top
 
     // Math block outputs
     // Split switches into two 4-bit signals A and B
-    wire lowerY;
-    wire upperY;
+    wire [3:0] lowerY;
+    wire [3:0] upperY;
     
    
 
