@@ -10,8 +10,9 @@ module top
     input btnU, // reset
     output [3:0] an, // 7seg anodes
     output [6:0] seg // 7seg segments
-    output [15:0] led
-    
+    output reg [7:0] A,
+    output reg [7:0] B,
+    output reg [7:0] Y
 );
 
     // Instantiate the clock divider...
@@ -36,9 +37,9 @@ module top
     wire [3:0] upperY;
 
     // Intermediate wires
-    wire [7:0] data_from_mux_A;
-    wire [7:0] data_from_mux_B;
-    wire [7:0] data_from_mux_Y;
+    wire [7:0] Aout;
+    wire [7:0] Bout;
+    wire [7:0] Yout;
 
     // Instantiate mux_A
     mux mux_A (
@@ -60,7 +61,7 @@ module top
         .LOAD(LOAD_A), 
         .sel(sel_A),
         .enable(btnC),
-        .data(data_from_mux_A)
+        .data(Aout)
     );
 
     // Instantiate mux_B
@@ -83,7 +84,7 @@ module top
         .LOAD(LOAD_B), 
         .sel(sel_B),
         .enable(btnC),
-        .data(data_from_mux_B)
+        .data(Bout)
     );
 
     // Instantiate mux_Y
@@ -106,7 +107,7 @@ module top
         .LOAD(LOAD_Y), 
         .sel(sel_Y), 
         .enable(btnC),
-        .data(data_from_mux_Y)
+        .data(Yout)
     );
 
 
@@ -134,9 +135,9 @@ module top
             B <= 8'b0;
             Y <= 8'b0;
         end else begin
-            A <= data_from_mux_A;
-            B <= data_from_mux_B;
-            Y <= data_from_mux_Y;
+            A <= Aout;
+            B <= Bout;
+            Y <= Yout;
         end
     end
 
