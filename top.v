@@ -127,5 +127,19 @@ module top
         .segs(seg)
     );
 
+     // Registers for A, B, and Y
+    always @(posedge btnC, posedge btnU) begin
+        if (btnU) begin
+            A <= 8'b0;
+            B <= 8'b0;
+            Y <= 8'b0;
+        end else begin
+            A <= data_from_mux_A;
+            B <= data_from_mux_B;
+            Y <= data_from_mux_Y;
+        end
+    end
+
+
 
 endmodule
