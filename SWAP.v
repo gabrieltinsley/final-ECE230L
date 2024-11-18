@@ -1,11 +1,18 @@
 module SWAP(
-  inout [7:0] A,
-  inout [7:0] B
+  input clock,             // Clock signal to control swapping
+  input swap,            // Control signal to trigger the swap
+  output reg [7:0] A,         // 8-bit register A
+  output reg [7:0] B          // 8-bit register B
 );
-
-  assign A => B;
-  assign B => A;
-
+  always @(posedge clk) begin
+    if (swap) begin
+      // Use a temporary variable to swap A and B
+      reg [7:0] temp;
+      temp = A;
+      A = B;
+      B = temp;
+    end
+  end
 endmodule
 
   
