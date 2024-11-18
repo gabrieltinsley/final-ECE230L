@@ -148,6 +148,8 @@ module top
     wire [7:0] AswpB;
 
     SWP op14 (
+        .clk(btnC),
+        .swap(sel),
         .A(A),
         .B(B)
     );
