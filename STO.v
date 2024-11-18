@@ -1,4 +1,4 @@
-module STORE(
+module STO(
     input [7:0] A,
     input store,
     output reg [7:0] Y
