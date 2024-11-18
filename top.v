@@ -31,9 +31,7 @@ module top
         .div_clock(div_clock)
     );
 
-
-    // Math block outputs
-    // Split switches into two 4-bit signals A and B
+    // Split switches into two 4-bit signals lowerY and upperY
     wire [3:0] lowerY;
     wire [3:0] upperY;
 
