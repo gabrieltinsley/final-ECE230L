@@ -25,7 +25,7 @@ module logic
   output Y,
 );
   genvar i;
-  wire [16:0] bits_out;
+  reg [16:0] bits_out;
 
   // each iteration through the for loop instiates and AND's the number A and B together 
 
@@ -33,9 +33,9 @@ module logic
   
   generate
     for(i = 0; i < BITS; i = i + 1) begin 
-      and_logic port5(
-        .andY(bits_out[i-1])
-      );
+      and_logic port5(.andY(bits_out[i-1]));
+
+      or_logic port6(.orY(bits_out[i-1]));
     end
   endgenerate
 endmodule
