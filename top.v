@@ -48,10 +48,9 @@ module top
 
     // Instantiate the seven-segment decoder
     seven_seg_decoder decoder_inst (
-       .A(sw[3:0]),
-        .B(sw[7:4]),
-        .AplusB(AplusB),
-        .AminusB(AminusB),
+        .Val(sw[3:0]),
+        .lowerY(lowerY),
+        .upperY(upperY),
         .anode(an),
         .segs(seg)
     );
