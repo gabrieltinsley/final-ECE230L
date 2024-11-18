@@ -1,5 +1,6 @@
 module seven_seg_decoder(
-    input [3:0] Val,
+    input [7:0] Val,
+    input [7:0] Val_2,
     input [3:0] lowerY,
     input [3:0] upperY,
     input [3:0] anode,
@@ -14,7 +15,7 @@ module seven_seg_decoder(
     always @(*) begin
       case (anode)
          'b1110: selected_sig <= Val; // Right
-         'b1101: selected_sig <= 0; // Right Center
+         'b1101: selected_sig <= Val_2; // Right Center
          'b1011: selected_sig <= lowerY; // Left Center
          'b0111: selected_sig <= upperY; // Left
       endcase
