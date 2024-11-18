@@ -6,8 +6,8 @@ module top
 (
     input [15:8] sw, // A and B
     input [3:0] sel,
-    input btnC, 
-    input btnU,
+    input btnC, // clock
+    input btnU, // reset
     output [3:0] an, // 7seg anodes
     output [6:0] seg // 7seg segments
     output [15:0] led
