@@ -50,7 +50,7 @@ module top
     // Instantiate the 7-segment scanner (to cycle through the anodes)
     seven_seg_scanner scanner_inst (
         .div_clock(div_clock),
-        .reset(btnC),
+        .reset(btnU),
         .anode(an)
     );
 
