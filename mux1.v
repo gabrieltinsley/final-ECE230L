@@ -1,16 +1,16 @@
 // This is the multiplexer that takes 16 inputs then outputs one 8 bit number
 
-module first_multi(
-  input [7:0] zero,
-  input [7:0] one,
-  input [7:0] two,
-  input [7:0] three,
-  input [7:0] four,
-  input [7:0] five,
-  input [7:0] six,
-  input [7:0] seven,
-  input [7:0] eight,
-  input [7:0] nine,
+module mux(
+  input [7:0] ADD,
+  input [7:0] SUB,
+  input [7:0] SHL,
+  input [7:0] SHR,
+  input [7:0] CMP,
+  input [7:0] AND,
+  input [7:0] OR,
+  input [7:0] XOR,
+  input [7:0] XNOR,
+  input [7:0] NAND,
   input [7:0] A_ten,
   input [7:0] B_eleven,
   input [7:0] C_twelve,
