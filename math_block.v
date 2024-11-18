@@ -11,8 +11,9 @@ module math_block(
      // Always block to handle addition and subtraction
     always @(*) begin
         Y = A + B;      
-        Y = A & B;
-        
+        Y = A - B;
+        Y = A * 2;
+        Y = A / 2; 
     end
 
    // Use full_adder just like week 6 lab for addition and subtraction
