@@ -4,7 +4,7 @@ module top
     // The test bench will set it appropriately
 )
 (
-    input [15:8] sw, // A and B
+    input [15:8] sw, // A 
     input [3:0] sel,
     input btnC, // clock
     input btnU, // reset
