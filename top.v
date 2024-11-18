@@ -57,20 +57,18 @@ module top
         .Y(AcmpB)
     );
     
-    wire [7:0] AshlB;
+    wire [7:0] Ashl;
 
     SHL op3 (
         .A(A),
-        .B(B),
-        .Y(AshlB)
+        .Y(Ashl)
     );
     
-    wire [7:0] AshrB;
+    wire [7:0] Ashr;
     
     SHR op4 (
         .A(A),
-        .B(B),
-        .Y(AshrB)
+        .Y(Ashr)
     );
     
     wire [7:0] AandB;
@@ -177,7 +175,7 @@ module top
         .ADD(A), 
         .SUB(A), 
         .SHL(Ashl), 
-        .SHR(SHR_A),
+        .SHR(Ashr),
         .CMP(CMP_A), 
         .AND(AND_A), 
         .OR(OR_A), 
@@ -197,7 +195,7 @@ module top
 
     // Instantiate mux_B
     mux mux_B (
-        .ADD(ADD_B), 
+        .ADD(B), 
         .SUB(SUB_B), 
         .SHL(SHL_B), 
         .SHR(SHR_B),
@@ -220,7 +218,7 @@ module top
 
     // Instantiate mux_Y
     mux mux_Y (
-        .ADD(ADD_Y), 
+        .ADD(AaddB), 
         .SUB(SUB_Y), 
         .SHL(SHL_Y), 
         .SHR(SHR_Y),
