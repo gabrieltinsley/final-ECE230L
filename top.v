@@ -157,7 +157,10 @@ module top
     wire [7:0] Aload;
 
     LOAD op15 (
-        .A(A)
+        .A(A),
+        .clock(btnC),
+        .load(btnU),
+        .switches(sw[15:8])
     );
 
     // Split switches into two 4-bit signals lowerY and upperY
