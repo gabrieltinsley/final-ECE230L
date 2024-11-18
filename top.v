@@ -61,7 +61,8 @@ module top
         .STO(STO_A), 
         .SWP(SWP_A),
         .LOAD(LOAD_A), 
-        .sel(sel_A), 
+        .sel(sel_A),
+        .enable(btnC),
         .data(data_from_mux_A)
     );
 
@@ -84,7 +85,8 @@ module top
         .STO(STO_B), 
         .SWP(SWP_B),
         .LOAD(LOAD_B), 
-        .sel(sel_B), 
+        .sel(sel_B),
+        .enable(btnC),
         .data(data_from_mux_B)
     );
 
@@ -108,6 +110,7 @@ module top
         .SWP(SWP_Y),
         .LOAD(LOAD_Y), 
         .sel(sel_Y), 
+        .enable(btnC),
         .data(data_from_mux_Y)
     );
 
