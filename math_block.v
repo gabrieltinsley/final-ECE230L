@@ -1,8 +1,7 @@
 module math_block(
-    input [3:0] A,
-    input [3:0] B,
-    output reg [3:0] AplusB,
-    output reg [3:0] AminusB
+    input [7:0] A,
+    input [7:0] B,
+    output reg [7:0] Y
 );
 
     // This one should be relatively easy.  You can either use your previous
@@ -11,8 +10,9 @@ module math_block(
 
      // Always block to handle addition and subtraction
     always @(*) begin
-        AplusB = A + B;      
-        AminusB = A - B;     
+        Y = A + B;      
+        Y = A & B;
+        
     end
 
    // Use full_adder just like week 6 lab for addition and subtraction
