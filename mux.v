@@ -43,7 +43,7 @@ module mux (
             endcase
         end else begin
             // When enable is low, output LOAD value expanded to 8 bits
-            data = {4'b0000, LOAD}; // Concatenate 4'b0000 with 4-bit LOAD to make 8 bits
+            data = LOAD; // Concatenate 4'b0000 with 4-bit LOAD to make 8 bits
         end
     end
 endmodule
