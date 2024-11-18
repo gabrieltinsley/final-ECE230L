@@ -122,7 +122,7 @@ module top
 
     // Instantiate the seven-segment decoder
     seven_seg_decoder decoder_inst (
-        .Val(sw[3:0]),
+        .Val(sw[15:8]),
         .lowerY(lowerY),
         .upperY(upperY),
         .anode(an),
