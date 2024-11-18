@@ -34,6 +34,7 @@ module top
 
     // Math block outputs
     // Split switches into two 4-bit signals A and B
+    
    
 
 
