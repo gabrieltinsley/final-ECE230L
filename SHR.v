@@ -3,6 +3,6 @@ module SHR(
   output [7:0] Y
 );
 
-  assign Y = A / 2;
+  assign Y = A >> 1;
 
 endmodule
