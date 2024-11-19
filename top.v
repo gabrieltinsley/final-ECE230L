@@ -156,7 +156,7 @@ module top
     LOAD op15 (
         .A(A),
         .clock(btnC),
-        .load(btnU),
+        .load(btnC),
         .switches(sw[15:8])
     );
 
