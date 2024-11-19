@@ -165,13 +165,16 @@ module top
     wire [3:0] lowerY;
     wire [3:0] upperY;
 
-    assign lowerY = Y[3:0];
-    assign upperY = Y[7:4];
+   
 
     // Intermediate wires
-    wire [7:0] Aout = led[15:8];
-    wire [7:0] Bout = led[7:0];
-    wire [7:0] Yout = upperY & lowerY;
+    wire [7:0] Aout;
+    wire [7:0] Bout;
+    wire [7:0] Yout;
+    
+    assign led[15:8] = A;
+    assign led[7:0] = B;
+    assign {upperY, lowerY} = Y;
 
     // Instantiate mux_A
     mux mux_A (
@@ -193,7 +196,7 @@ module top
         .LOAD(A), 
         .sel(sw[3:0]),
         .enable(btnC),
-        .data(led[15:8])
+        .data(Aout)
     );
 
     // Instantiate mux_B
@@ -216,7 +219,7 @@ module top
         .LOAD(B), 
         .sel(sw[3:0]),
         .enable(btnC),
-        .data(led[7:0])
+        .data(Bout)
     );
 
     // Instantiate mux_Y
