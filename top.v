@@ -119,20 +119,18 @@ module top
         .Y(AxnorB)
     );
     
-    wire [7:0] AinvB;
+    wire [7:0] Ainv;
 
     INV op11 (
         .A(A),
-        .B(B),
         .Y(AinvB)
     );
     
-    wire [7:0] AnegB;
+    wire [7:0] Aneg;
 
     NEG op12 (
         .A(A),
-        .B(B),
-        .Y(AnegB)
+        .Y(Aneg)
     );
     
     wire [7:0] Asto;
@@ -146,10 +144,10 @@ module top
     wire [7:0] AswpB;
 
     SWP op14 (
-        .clk(btnC),
-        .swap(btnU),
-        .A(A),
-        .B(B)
+        .clock(btnC),
+        .swap(AswpB),
+        .A(B),
+        .B(A)
     );
     
     wire [7:0] Aload;
@@ -164,6 +162,9 @@ module top
     // Split switches into two 4-bit signals lowerY and upperY
     wire [3:0] lowerY;
     wire [3:0] upperY;
+
+    assign lowerY = Y[3:0];
+    assign upperY = Y[7:4];
 
     // Intermediate wires
     wire [7:0] Aout;
