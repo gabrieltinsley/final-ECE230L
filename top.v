@@ -12,7 +12,8 @@ module top
     output [6:0] seg // 7seg segments
     output reg [7:0] A,
     output reg [7:0] B,
-    output reg [7:0] Y
+    output reg [7:0] Y,
+    output [15:0] led
 );
 
     // Instantiate the clock divider...
@@ -167,8 +168,8 @@ module top
     assign upperY = Y[7:4];
 
     // Intermediate wires
-    wire [7:0] Aout;
-    wire [7:0] Bout;
+    wire [7:0] Aout = led[15:8];
+    wire [7:0] Bout = led[7:0];
     wire [7:0] Yout;
 
     // Instantiate mux_A
