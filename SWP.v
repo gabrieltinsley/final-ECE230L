@@ -8,9 +8,9 @@ module SWP(
     if (swap) begin
       // Use a temporary variable to swap A and B
       reg [7:0] temp;
-      temp = A;
-      A = B;
-      B = temp;
+      temp => A;
+      A => B;
+      B => temp;
     end
   end
 endmodule
