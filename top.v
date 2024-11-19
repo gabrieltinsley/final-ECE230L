@@ -123,7 +123,7 @@ module top
 
     INV op11 (
         .A(A),
-        .Y(AinvB)
+        .Y(Ainv)
     );
     
     wire [7:0] Aneg;
