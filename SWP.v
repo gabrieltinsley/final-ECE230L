@@ -1,4 +1,4 @@
-module SWAP(
+module SWP(
   input clock,             // Clock signal to control swapping
   input swap,            // Control signal to trigger the swap
   output reg [7:0] A,         // 8-bit register A
