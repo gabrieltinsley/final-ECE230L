@@ -146,7 +146,7 @@ module top
 
     SWP op14 (
         .clock(btnC),
-        .swap(AswpB),
+        .swap(btnC),
         .A(B),
         .B(A)
     );
