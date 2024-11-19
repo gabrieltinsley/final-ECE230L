@@ -4,18 +4,18 @@ module top
     // The test bench will set it appropriately
 )
 (
-    input [15:8] sw, // A 
-    input [3:0] sel,
+    input [15:0] sw, // A 
     input btnC, // clock
     input btnU, // reset
+    input clk,
     output [3:0] an, // 7seg anodes
-    output [6:0] seg // 7seg segments
-    output reg [7:0] A,
-    output reg [7:0] B,
-    output reg [7:0] Y,
+    output [6:0] seg, // 7seg segments
     output [15:0] led
 );
 
+    reg [7:0] A;
+    reg [7:0] B;
+    reg [7:0] Y;
     // Instantiate the clock divider...
     // ... wire it up to the scanner
     // ... wire the scanner to the decoder
@@ -28,7 +28,7 @@ module top
     
     // Instantiate the clock divider
     clock_div #(.DIVIDE_BY(BIT_COUNT)) clk_div_inst (
-        .clock(btnC),
+        .clock(clk),
         .reset(btnU),
         .div_clock(div_clock)
     );
@@ -143,18 +143,19 @@ module top
     );
     
     wire [7:0] AswpB;
+    wire [7:0] BswpA;
 
     SWP op14 (
         .clock(btnC),
         .swap(btnC),
-        .A(B),
-        .B(A)
+        .A(AswpB),
+        .B(BswpA)
     );
     
     wire [7:0] Aload;
 
     LOAD op15 (
-        .A(A),
+        .A(Aload),
         .clock(btnC),
         .load(btnC),
         .switches(sw[15:8])
@@ -170,7 +171,7 @@ module top
     // Intermediate wires
     wire [7:0] Aout = led[15:8];
     wire [7:0] Bout = led[7:0];
-    wire [7:0] Yout;
+    wire [7:0] Yout = upperY & lowerY;
 
     // Instantiate mux_A
     mux mux_A (
@@ -188,11 +189,11 @@ module top
         .INV(A), 
         .NEG(A), 
         .STO(Y), 
-        .SWP(B),
+        .SWP(AswpB),
         .LOAD(A), 
-        .sel(sel),
+        .sel(sw[3:0]),
         .enable(btnC),
-        .data(Aout)
+        .data(led[15:8])
     );
 
     // Instantiate mux_B
@@ -211,11 +212,11 @@ module top
         .INV(B), 
         .NEG(B), 
         .STO(B), 
-        .SWP(A),
+        .SWP(BswpA),
         .LOAD(B), 
-        .sel(sel),
+        .sel(sw[3:0]),
         .enable(btnC),
-        .data(Bout)
+        .data(led[7:0])
     );
 
     // Instantiate mux_Y
@@ -236,7 +237,7 @@ module top
         .STO(Y), 
         .SWP(Y),
         .LOAD(Y), 
-        .sel(sel), 
+        .sel(sw[3:0]), 
         .enable(btnC),
         .data(Yout)
     );
