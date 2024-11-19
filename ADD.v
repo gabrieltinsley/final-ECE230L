@@ -4,7 +4,7 @@ module ADD (
   output [7:0]Y
 );
 
-  wire [7:0] APlusB;
+  wire [7:0] AplusB;
   wire [7:0]carry;
 
 
@@ -14,7 +14,7 @@ module ADD (
     full_adder bit0_first(
       .A(A[0]),
       .B(B[0]),
-        .Y(APlusB[0]),
+      .Y(AplusB[0]),
         .Cin(1'b0), // Fix to zero
       .Cout(carry[0])
     );
@@ -22,7 +22,7 @@ module ADD (
     full_adder bit1_first(
       .A(A[1]),
       .B(B[1]),
-        .Y(APlusB[1]),
+      .Y(AplusB[1]),
       .Cin(carry[0]),
       .Cout(carry[1])
     );
@@ -30,7 +30,7 @@ module ADD (
     full_adder bit2_first(
       .A(A[2]),
       .B(B[2]),
-      .Y(APlusB[2]),
+      .Y(AplusB[2]),
       .Cin(carry[1]),
       .Cout(carry[2])
     );
@@ -38,7 +38,7 @@ module ADD (
     full_adder bit3_first(
       .A(A[3]),
       .B(B[3]),
-      .Y(APlusB[3]),
+      .Y(AplusB[3]),
       .Cin(carry[2]),
       .Cout(carry[3])
     );
@@ -77,7 +77,7 @@ module ADD (
 
     // Second addition
     full_adder bit0_second(
-        .A(APlusB[0]), // Adding LSB of (A + B)
+      .A(AplusB[0]), // Adding LSB of (A + B)
         .B(1'b0), // We are adding 0, with the optional carry:
         .Y(Y[0]), // This is now the real summation
       .Cin(carry[7]), // Fix to zero
@@ -86,7 +86,7 @@ module ADD (
     );
     
     full_adder bit1_second(
-        .A(APlusB[1]),
+      .A(AplusB[1]),
         .B(1'b0),
         .Y(Y[1]),
       .Cin(second_carry[0]),
@@ -94,7 +94,7 @@ module ADD (
     );
 
     full_adder bit2_second(
-      .A(APlusB[2]),
+      .A(AplusB[2]),
       .B(1'b0),
       .Y(Y[2]),
     .Cin(second_carry[1]),
@@ -102,7 +102,7 @@ module ADD (
     );
     
     full_adder bit3_second(
-      .A(APlusB[3]),
+      .A(AplusB[3]),
       .B(1'b0),
       .Y(Y[3]),
     .Cin(second_carry[2])
