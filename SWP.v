@@ -4,10 +4,12 @@ module SWP(
   output reg [7:0] A,         // 8-bit register A
   output reg [7:0] B          // 8-bit register B
 );
-  always @(posedge clk) begin
+
+  reg [7:0] temp;
+  
+  always @(posedge clock) begin
     if (swap) begin
       // Use a temporary variable to swap A and B
-      reg [7:0] temp;
       temp <= A;
       A <= B;
       B <= temp;
