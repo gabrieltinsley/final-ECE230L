@@ -2,18 +2,16 @@ module dff(
     input reset,
     input clock,
     input D,
-    output reg Q,
-    output NotQ
+    output reg Q
 );
 
     always @(posedge reset, posedge clock) begin
         if (reset) begin
             Q <= 0;
         end else if (clock) begin
-            Q <= D;
+            Q <= ~Q;
         end
     end
-     assign NotQ = ~Q;
 endmodule
 
 module clock_div
@@ -26,29 +24,29 @@ module clock_div
     output reg div_clock
 );
 
-    wire [DIVIDE_BY-1:0] qOut;
+    wire [DIVIDE_BY:0] qOut;
 
     dff firstDff(
-        .reset(reset)
-        .clock(clock)
-        .D(qOut[0])
+        .reset(reset),
+        .clock(clock),
         .Q(qOut[0])
     );
 
     genvar i;
 
     generate
-        for (i = 0; i < DIVIDE_BY; i = i + 1) begin
+        for (i = 1; i <= DIVIDE_BY; i = i + 1) begin
             dff dff_inst(
                 .reset(reset),
-                .clock(~qOut[i-1]),
-                .D(qOut[i+1])
-                .Q(qOut[i+1])
+                .clock(qOut[i - 1]),
+                .Q(qOut[i])
             );
 
         end
     endgenerate
-
-    assign div_clock = qOut[DIVIDE_BY - 1];
+    
+    always @(*) begin
+        div_clock = qOut[DIVIDE_BY];
+    end
 
 endmodule
